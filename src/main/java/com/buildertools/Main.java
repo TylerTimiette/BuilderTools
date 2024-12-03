@@ -59,12 +59,12 @@ public class Main extends JavaPlugin  {
     }
 
     public void onEnable() {
-        this.getLogger().info("SmoothTP enabled");
+        this.getLogger().info("BuilderTools enabled");
         if((this.getServer().getPluginManager().getPlugin("PermissionsEx") == null) && (this.getServer().getPluginManager().getPlugin("LuckPerms") == null)) {
             this.getLogger().warning("There's no permission plugin installed! Disabling plugin now\n(You should be using LuckPerms or PEx. If either of these are present, do you have Vault installed?");
         }
 
-            this.getConfig().addDefault("prefix", "&5&lSmoothTP &f&l» &r");
+            this.getConfig().addDefault("prefix", "&5&lBuilderTools &f&l» &r");
             this.getConfig().options().copyDefaults(true);
             this.saveConfig();
             ((PluginCommand) Objects.requireNonNull(this.getCommand("smoothtpset"))).setExecutor(new STPCommand());
@@ -73,7 +73,7 @@ public class Main extends JavaPlugin  {
 
 
     public void onDisable() {
-        this.getLogger().info("SmoothTP disbled");
+        this.getLogger().info("BuilderTools disbled");
     }
 
 }

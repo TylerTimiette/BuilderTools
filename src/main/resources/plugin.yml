@@ -10,11 +10,11 @@ commands:
   nick:
     description: 'Sets a command block that the sender is currently standing on to a Smooth TP command.'
     aliases: [stp, bstp, butterysmoothtp, butterysmooth]
-    permission: smoothtp.use
+    permission: buildertools.smoothtp
     permission-message: "§cYou're missing the following permission: §6<permission>"
   permissions:
     buildertools.smoothtp:
       description: 'Allows usage of the SmoothTP plugin.'
       default: false
     buildertools.light:
-      description: 'Users with this perm can right-click a lightblock to change the light level of it.'
+      description: 'Users with this perm can right-click a lightblock to change the light level of it while in Creative.'

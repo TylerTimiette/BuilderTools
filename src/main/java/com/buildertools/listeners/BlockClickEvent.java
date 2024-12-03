@@ -1,5 +1,6 @@
 package com.buildertools.listeners;
 
+import org.bukkit.GameMode;
 import org.bukkit.Material;
 import org.bukkit.block.data.type.Light;
 import org.bukkit.event.EventHandler;
@@ -15,19 +16,21 @@ public class BlockClickEvent implements Listener {
             if(e.getClickedBlock() != null) {
                 if(e.getClickedBlock().getState().getType() == Material.LIGHT) {
                     if(e.getPlayer().hasPermission("buildertools.light")) {
-                        Light light = (Light) e.getClickedBlock().getBlockData();
-                        int lightLevel = light.getLevel();
-                        int maxLevel = light.getMaximumLevel();
-                        int newLevel;
+                        if (e.getPlayer().getGameMode() == GameMode.CREATIVE) {
+                            Light light = (Light) e.getClickedBlock().getBlockData();
+                            int lightLevel = light.getLevel();
+                            int maxLevel = light.getMaximumLevel();
+                            int newLevel;
 
-                        if(lightLevel == maxLevel)
-                            newLevel = 0;
-                        else
-                            newLevel = lightLevel+1;
+                            if (lightLevel == maxLevel)
+                                newLevel = 0;
+                            else
+                                newLevel = lightLevel + 1;
 
-                        light.setLevel(newLevel);
-                        e.getClickedBlock().setBlockData(light);
+                            light.setLevel(newLevel);
+                            e.getClickedBlock().setBlockData(light);
 
+                        }
                     }
                 }
             }
