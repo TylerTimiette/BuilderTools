@@ -12,6 +12,11 @@ commands:
     aliases: [stp, bstp, butterysmoothtp, butterysmooth]
     permission: buildertools.smoothtp
     permission-message: "§cYou're missing the following permission: §6<permission>"
+  lightblock:
+    description: 'Sets the block where the players bottom half is to a lightblock of a specified intensity.'
+    aliases: [lightblockset, lightset, lbset]
+    permission: builertools.light
+    permission-message: "§cYou're missing the following permission: §6<permission>"
   permissions:
     buildertools.smoothtp:
       description: 'Allows usage of the SmoothTP plugin.'
