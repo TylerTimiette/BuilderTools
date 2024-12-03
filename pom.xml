@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.smoothtp</groupId>
+    <artifactId>SmoothTP</artifactId>
+    <version>2.2.1</version>
+    <packaging>jar</packaging>
+    <name>SmoothTP</name>
+    <description>SmoothTP</description>
+
+    <developers>
+        <developer>
+            <name>Lum</name>
+        </developer>
+    </developers>
+
+
+    <properties>
+        <author>Lum</author>
+        <mainClass>com.smoothtp.Main</mainClass>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+
+    <build>
+
+        <sourceDirectory>src/main/java</sourceDirectory>
+
+        <defaultGoal>clean install</defaultGoal>
+
+
+        <resources>
+
+
+            <resource>
+
+                <directory>src/main/resources</directory>
+
+                <filtering>true</filtering>
+
+
+                <includes>
+                    <include>plugin.yml</include>
+                    <include>config.yml</include>
+                </includes>
+
+            </resource>
+
+
+            <resource>
+
+                <directory>src/main/resources</directory>
+
+                <filtering>false</filtering>
+
+
+                <excludes>
+                    <exclude>**/*.java</exclude>
+                    <exclude>plugin.yml</exclude>
+                    <exclude>config.yml</exclude>
+                </excludes>
+
+            </resource>
+
+        </resources>
+
+
+        <plugins>
+
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>16</source>
+                    <target>16</target>
+                </configuration>
+            </plugin>
+
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.4.1</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+        </plugins>
+
+    </build>
+
+
+    <repositories>
+        <repository>
+            <id>papermc</id>
+            <url>https://repo.papermc.io/repository/maven-public/</url>
+        </repository>
+    </repositories>
+
+
+    <dependencies>
+        <dependency>
+            <groupId>io.papermc.paper</groupId>
+            <artifactId>paper-api</artifactId>
+            <version>1.21.1-R0.1-SNAPSHOT</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
+</project>

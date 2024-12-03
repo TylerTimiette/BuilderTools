@@ -1,0 +1,18 @@
+name: SmoothTP
+version: 1.21.1
+description: A decorative plugin.
+authors: [Lum]
+
+main: com.smoothtp.Main
+api-version: 1.14
+
+commands:
+  nick:
+    description: 'Sets a command block that the sender is currently standing on to a Smooth TP command.'
+    aliases: [stp, bstp, butterysmoothtp, butterysmooth]
+    permission: smoothtp.use
+    permission-message: "§cYou're missing the following permission: §6<permission>"
+  permissions:
+    smoothtp.use:
+      description: 'Allows usage of the SmoothTP plugin.'
+      default: false
