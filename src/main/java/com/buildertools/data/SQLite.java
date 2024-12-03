@@ -1,6 +1,6 @@
-package com.smoothtp.data;
+package com.buildertools.data;
 
-import com.smoothtp.Main;
+import com.buildertools.Main;
 
 import java.io.File;
 import java.io.IOException;
@@ -15,11 +15,12 @@ public class SQLite extends Database {
         super(instance);
     }
 
-    public Connection getSQLConnection() {
-        File dataFolder = new File(this.instance.getDataFolder(), "players.db");
-        if (!dataFolder.exists()) {
+    public Connection getCMDSQLConnection() {
+        File cmdBlocks = new File(this.instance.getDataFolder(), "cmdblocks.db");
+
+        if (!cmdBlocks.exists()) {
             try {
-                if (!dataFolder.createNewFile()) {
+                if (!cmdBlocks.createNewFile()) {
                     throw new IOException("Could not create File. Probably due to read/write permissions.");
                 }
             } catch (IOException var5) {
@@ -33,7 +34,7 @@ public class SQLite extends Database {
             }
 
             Class.forName("org.sqlite.JDBC");
-            this.connection = DriverManager.getConnection("jdbc:sqlite:" + dataFolder);
+            this.connection = DriverManager.getConnection("jdbc:sqlite:" + cmdBlocks);
             return this.connection;
         } catch (SQLException var3) {
             this.instance.getLogger().log(Level.SEVERE, "SQLite exception on initialize", var3);
@@ -45,11 +46,11 @@ public class SQLite extends Database {
     }
 
     public void load() {
-        this.connection = this.getSQLConnection();
+        this.connection = this.getCMDSQLConnection();
 
         try {
             Statement s = this.connection.createStatement();
-            String SQLiteCreatePlayerTable = "CREATE TABLE IF NOT EXISTS players (`uuid` varchar NOT NULL,`prefix` varchar NOT NULL,`nickname` varchar NOT NULL,`suffix` varchar NOT NULL,`marker` varchar NOT NULL,`quote` varchar NOT NULL,`ignored` varchar NOT NULL,'color' varchar NOT NULL,UNIQUE(uuid));";
+            String SQLiteCreatePlayerTable = "CREATE TABLE IF NOT EXISTS players (`uuid` varchar NOT NULL,`x` int NOT NULL,`y` int NOT NULL,`z` int NOT NULL,`world` varchar NOT NULL,UNIQUE(uuid));";
             s.executeUpdate(SQLiteCreatePlayerTable);
             s.close();
         } catch (SQLException var3) {

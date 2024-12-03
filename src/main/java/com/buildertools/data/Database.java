@@ -1,6 +1,6 @@
-package com.smoothtp.data;
+package com.buildertools.data;
 
-import com.smoothtp.Main;
+import com.buildertools.Main;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -17,12 +17,12 @@ public abstract class Database {
         this.instance = instance;
     }
 
-    protected abstract Connection getSQLConnection();
+    protected abstract Connection getCMDSQLConnection();
 
     public abstract void load();
 
     void initialize() {
-        this.connection = this.getSQLConnection();
+        this.connection = this.getCMDSQLConnection();
 
         try {
             PreparedStatement preparedStatement = this.connection.prepareStatement("SELECT * FROM `players` LIMIT 1");
@@ -40,7 +40,7 @@ public abstract class Database {
         ResultSet resultSet = null;
 
         try {
-            this.connection = this.getSQLConnection();
+            this.connection = this.getCMDSQLConnection();
             preparedStatement = this.connection.prepareStatement("SELECT * FROM `players` WHERE `uuid`=?;");
             preparedStatement.setString(1, uuid.toString());
             resultSet = preparedStatement.executeQuery();
@@ -65,7 +65,7 @@ public abstract class Database {
         PreparedStatement preparedStatement = null;
 
         try {
-            this.connection = this.getSQLConnection();
+            this.connection = this.getCMDSQLConnection();
             preparedStatement = this.connection.prepareStatement("INSERT OR REPLACE INTO `players` (uuid, x, y, z, world) VALUES (?,?,?,?,?);");
             preparedStatement.setString(1, playerData.getUuid().toString());
             preparedStatement.setInt(2, playerData.getLastCMDBlock().getBlockX());

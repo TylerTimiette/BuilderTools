@@ -1,6 +1,6 @@
-package com.smoothtp.commands;
+package com.buildertools.commands;
 
-import com.smoothtp.Main;
+import com.buildertools.Main;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.block.CommandBlock;

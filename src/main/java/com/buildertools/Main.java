@@ -1,8 +1,8 @@
-package com.smoothtp;
+package com.buildertools;
 
 
-import com.smoothtp.commands.STPCommand;
-import com.smoothtp.data.Database;
+import com.buildertools.commands.STPCommand;
+import com.buildertools.data.Database;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.PluginCommand;
 import org.bukkit.entity.Player;

@@ -1,4 +1,4 @@
-package com.smoothtp.commands;
+package com.buildertools.commands;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;

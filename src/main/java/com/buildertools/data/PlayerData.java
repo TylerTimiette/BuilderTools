@@ -1,6 +1,6 @@
-package com.smoothtp.data;
+package com.buildertools.data;
 
-import com.smoothtp.Main;
+import com.buildertools.Main;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;
