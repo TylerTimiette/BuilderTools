@@ -1,6 +1,8 @@
 package com.smoothtp;
 
 
+import com.smoothtp.commands.STPCommand;
+import com.smoothtp.data.Database;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.PluginCommand;
 import org.bukkit.entity.Player;
@@ -11,7 +13,7 @@ import java.util.Objects;
 
 public class Main extends JavaPlugin  {
     private static Main instance;
-
+    private Database database;
     //private WhoAmICommand whois = new WhoAmICommand();
 
     public Main() {
@@ -52,6 +54,9 @@ public class Main extends JavaPlugin  {
         }
     }
 
+    public Database getDatabase() {
+        return this.database;
+    }
 
     public void onEnable() {
         this.getLogger().info("SmoothTP enabled");
