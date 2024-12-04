@@ -5,11 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.smoothtp</groupId>
-    <artifactId>SmoothTP</artifactId>
-    <version>2.2.1</version>
+    <artifactId>BuilderTools</artifactId>
+    <version>1.0</version>
     <packaging>jar</packaging>
-    <name>SmoothTP</name>
-    <description>SmoothTP</description>
+    <name>BuilderTools</name>
+    <description>BuilderTools</description>
 
     <developers>
         <developer>
@@ -20,7 +20,7 @@
 
     <properties>
         <author>Lum</author>
-        <mainClass>com.smoothtp.Main</mainClass>
+        <mainClass>com.buildertools.Main</mainClass>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>

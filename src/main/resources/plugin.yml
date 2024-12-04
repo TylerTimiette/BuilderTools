@@ -1,18 +1,36 @@
-name: SmoothTP
-version: 1.21.1
-description: A decorative plugin.
+name: BuilderTools
+version: 1.0
+description: A plugin useful for giving builders more permissions than would otherwise be granted, without needing to op them.
 authors: [Lum]
 
-main: com.smoothtp.Main
-api-version: 1.14
+main: com.buildertools.Main
+api-version: 1.21.1
 
 commands:
-  nick:
+  smoothtpset:
     description: 'Sets a command block that the sender is currently standing on to a Smooth TP command.'
     aliases: [stp, bstp, butterysmoothtp, butterysmooth]
-    permission: smoothtp.use
+    permission: buildertools.smoothtp
+    permission-message: "§cYou're missing the following permission: §6<permission>"
+  lightblock:
+    description: 'Sets the block where the players bottom half is to a lightblock of a specified intensity.'
+    aliases: [lightblockset, lightset, lbset]
+    permission: buildertools.light
+    permission-message: "§cYou're missing the following permission: §6<permission>"
+  btreload:
+    description: 'Reloads the config.'
+  cmdquery:
+    description: 'Queries the command block under the sender, and displays the command inside.'
+    aliases: [commandquery, query, blockquery, cmdblockquery, commandblockquery]
+    permission: buildertools.query
     permission-message: "§cYou're missing the following permission: §6<permission>"
   permissions:
-    smoothtp.use:
-      description: 'Allows usage of the SmoothTP plugin.'
+    buildertools.smoothtp:
+      description: 'Allows usage of the /smoothtpset command.'
+      default: false
+    buildertools.light:
+      description: 'Users with this perm can right-click a lightblock to change the light level of it while in Creative.'
+      default: false
+    buildertools.query:
+      description: 'Users can use /cmdquery to check the contents of a command block under their feet.'
       default: false
