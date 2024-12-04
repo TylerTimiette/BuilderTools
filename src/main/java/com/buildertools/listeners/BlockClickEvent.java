@@ -1,5 +1,6 @@
 package com.buildertools.listeners;
 
+import com.buildertools.Main;
 import org.bukkit.GameMode;
 import org.bukkit.Material;
 import org.bukkit.block.data.type.Light;
@@ -29,6 +30,8 @@ public class BlockClickEvent implements Listener {
 
                             light.setLevel(newLevel);
                             e.getClickedBlock().setBlockData(light);
+                            Main.getInstance().getLogger().info(e.getPlayer().getName() + " set block at " + e.getClickedBlock().getLocation().getBlockX()+","+(e.getClickedBlock().getLocation().getBlockY())+","+e.getClickedBlock().getLocation().getBlockZ() + " to lightblock with intensity of " + lightLevel + " in world " + e.getClickedBlock().getWorld().getName());
+
 
                         }
                     }
