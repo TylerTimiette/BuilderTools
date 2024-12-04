@@ -25,7 +25,7 @@ public class STPCommand implements CommandExecutor {
             "&fArg #6 &7(DZ) &f-- &aHow far the detection range extends in the &2&oZ &aaxis\n\n" +
             "&fArg #7 &7(X2) &f-- &aHow far to teleport the player in the &2&oX&a axis as an offset from their current position once they step into range\n" +
             "&fArg #8 &7(Y2) &f-- &aHow far to teleport the player in the &2&oY&a axis as an offset from their current position once they step into range\n" +
-            "&fArg #9 &7(Y2) &f-- &aHow far to teleport the player in the &2&oZ&a axis as an offset from their current position once they step into range\n" +
+            "&fArg #9 &7(Z2) &f-- &aHow far to teleport the player in the &2&oZ&a axis as an offset from their current position once they step into range\n" +
             "&fTildes &7(~) &fare added automatically to the final 3 arguments.";
 
     public boolean onCommand(@Nonnull CommandSender sender, @Nonnull Command command, @Nonnull String label, @Nonnull String[] args) {
