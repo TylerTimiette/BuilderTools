@@ -15,7 +15,7 @@ public class SQLite extends Database {
         super(instance);
     }
 
-    public Connection getCMDSQLConnection() {
+    public Connection getSQLConnection() {
         File cmdBlocks = new File(this.instance.getDataFolder(), "cmdblocks.db");
 
         if (!cmdBlocks.exists()) {
@@ -24,7 +24,7 @@ public class SQLite extends Database {
                     throw new IOException("Could not create File. Probably due to read/write permissions.");
                 }
             } catch (IOException var5) {
-                this.instance.getLogger().log(Level.SEVERE, "File write error: players.db", var5);
+                this.instance.getLogger().log(Level.SEVERE, "File write error: cmdblocks.db", var5);
             }
         }
 
@@ -46,12 +46,14 @@ public class SQLite extends Database {
     }
 
     public void load() {
-        this.connection = this.getCMDSQLConnection();
+        this.connection = this.getSQLConnection();
 
         try {
             Statement s = this.connection.createStatement();
             String SQLiteCreatePlayerTable = "CREATE TABLE IF NOT EXISTS players (`uuid` varchar NOT NULL,`x` int NOT NULL,`y` int NOT NULL,`z` int NOT NULL,`world` varchar NOT NULL,UNIQUE(uuid));";
+            String SQLiteCreateRegionTable = "CREATE TABLE IF NOT EXISTS regions (`world` varchar NOT NULL, `number` int NOT NULL, `size` NOT NULL, `x-boundary`, int NOT NULL, `y-boundary` int NOT NULL, `z-boundary` int NOT NULL, `start-x` int NOT NULL, `start-y` int NOT NULL, `start-z` int NOT NULL, `note` varchar NOT NULL, PRIMARY KEY(`world`));";
             s.executeUpdate(SQLiteCreatePlayerTable);
+            s.executeUpdate(SQLiteCreateRegionTable);
             s.close();
         } catch (SQLException var3) {
             var3.printStackTrace();

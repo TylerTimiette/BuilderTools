@@ -24,6 +24,8 @@ commands:
     aliases: [commandquery, query, blockquery, cmdblockquery, commandblockquery]
     permission: buildertools.query
     permission-message: "§cYou're missing the following permission: §6<permission>"
+  btdebug:
+    description: 'Runs a series of tests meant for debugging a build.'
   permissions:
     buildertools.smoothtp:
       description: 'Allows usage of the /smoothtpset command.'
